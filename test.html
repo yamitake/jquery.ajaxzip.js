@@ -23,7 +23,17 @@
     <script type="text/javascript" src="./jquery.ajaxzip.js"></script>
     <script type="text/javascript">
       $(function() {
-        $("#formid").ajaxzip();
+        var zipcode = "185-0024";
+
+        $.ajaxzip(zipcode , {
+          success: function(data){
+            console.log(data);
+          },
+          error: function(data){
+            console.log("error");
+            console.log(data);
+          }
+        });
       });
     </script>
   </body>
