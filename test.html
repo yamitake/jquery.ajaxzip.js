@@ -2,37 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link href="jquery.mixpanel-view.css" rel="stylesheet" type="text/css" media="all">
-    <title>Yapr. | jquery.mixpanel-view.js test page</title>
+    <title>Yapr. | jquery.ajaxzip test</title>
   </head>
   <body>
+    <h1>テスト</h1>
     <div>
-      <h1>hello</h1>
-      <p>
-        you have world
-      </p>
-
+      色々なテストコードを書きましょう。
     </div>
-    <div id="mixpanel-view">
-      グラフの内容を過期待でござる。
+    <div style="padding:10px;border:1px solid #0faaf0;">
+      <form id="formid">
+        <input type="text" name="post-code">
 
+      </form>
     </div>
 
-
-    <div id="footer">
-      Copyright (C) yapr All Rights Reserved.
-    </div>
 
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript">google.load("jquery", "1.4.0");google.load("feeds", "1");</script>
+    <script type="text/javascript">google.load("jquery", "1.7.0");</script>
 
-    <script type="text/javascript" src="jquery.mixpanel-view.js"></script>
+    <script type="text/javascript" src="./jquery.ajaxzip.js"></script>
     <script type="text/javascript">
-    var data = {"meta":{"dates":["2012-12-01","2012-12-02","2012-12-03","2012-12-04","2012-12-05","2012-12-06","2012-12-07","2012-12-08","2012-12-09","2012-12-10"]},"data":{"2012-12-01":{"steps":[{"count":58,"step_conv_ratio":1,"goal":"view contributors/show","overall_conv_ratio":1,"avg_time":null,"event":"view contributors/show"},{"count":3,"step_conv_ratio":0.05172413793103448,"goal":"view items/subscribe","overall_conv_ratio":0.05172413793103448,"avg_time":335,"event":"view items/subscribe"},{"count":1,"step_conv_ratio":0.3333333333333333,"goal":"view items/thanks","overall_conv_ratio":0.017241379310344827,"avg_time":327,"event":"view items/thanks"}],"analysis":{"completion":1,"starting_amount":58,"steps":3,"worst":1}},"2012-12-02":{"steps":[{"count":36,"step_conv_ratio":1,"goal":"view contributors/show","overall_conv_ratio":1,"avg_time":null,"event":"view contributors/show"},{"count":1,"step_conv_ratio":0.027777777777777776,"goal":"view items/subscribe","overall_conv_ratio":0.027777777777777776,"avg_time":36,"event":"view items/subscribe"},{"count":0,"step_conv_ratio":0.0,"goal":"view items/thanks","overall_conv_ratio":0.0,"avg_time":null,"event":"view items/thanks"}],"analysis":{"completion":0,"starting_amount":36,"steps":3,"worst":2}},"2012-12-03":{"steps":[{"count":70,"step_conv_ratio":1,"goal":"view contributors/show","overall_conv_ratio":1,"avg_time":null,"event":"view contributors/show"},{"count":7,"step_conv_ratio":0.1,"goal":"view items/subscribe","overall_conv_ratio":0.1,"avg_time":110552,"event":"view items/subscribe"},{"count":1,"step_conv_ratio":0.14285714285714285,"goal":"view items/thanks","overall_conv_ratio":0.014285714285714285,"avg_time":60,"event":"view items/thanks"}],"analysis":{"completion":1,"starting_amount":70,"steps":3,"worst":1}},"2012-12-04":{"steps":[{"count":190,"step_conv_ratio":1,"goal":"view contributors/show","overall_conv_ratio":1,"avg_time":null,"event":"view contributors/show"},{"count":11,"step_conv_ratio":0.05789473684210526,"goal":"view items/subscribe","overall_conv_ratio":0.05789473684210526,"avg_time":1050,"event":"view items/subscribe"},{"count":3,"step_conv_ratio":0.2727272727272727,"goal":"view items/thanks","overall_conv_ratio":0.015789473684210527,"avg_time":162193,"event":"view items/thanks"}],"analysis":{"completion":3,"starting_amount":190,"steps":3,"worst":1}},"2012-12-05":{"steps":[{"count":171,"step_conv_ratio":1,"goal":"view contributors/show","overall_conv_ratio":1,"avg_time":null,"event":"view contributors/show"},{"count":14,"step_conv_ratio":0.08187134502923976,"goal":"view items/subscribe","overall_conv_ratio":0.08187134502923976,"avg_time":13617,"event":"view items/subscribe"},{"count":5,"step_conv_ratio":0.35714285714285715,"goal":"view items/thanks","overall_conv_ratio":0.029239766081871343,"avg_time":212,"event":"view items/thanks"}],"analysis":{"completion":5,"starting_amount":171,"steps":3,"worst":1}},"2012-12-06":{"steps":[{"count":121,"step_conv_ratio":1,"goal":"view contributors/show","overall_conv_ratio":1,"avg_time":null,"event":"view contributors/show"},{"count":13,"step_conv_ratio":0.10743801652892562,"goal":"view items/subscribe","overall_conv_ratio":0.10743801652892562,"avg_time":399399,"event":"view items/subscribe"},{"count":5,"step_conv_ratio":0.38461538461538464,"goal":"view items/thanks","overall_conv_ratio":0.04132231404958678,"avg_time":222,"event":"view items/thanks"}],"analysis":{"completion":5,"starting_amount":121,"steps":3,"worst":1}},"2012-12-07":{"steps":[{"count":106,"step_conv_ratio":1,"goal":"view contributors/show","overall_conv_ratio":1,"avg_time":null,"event":"view contributors/show"},{"count":11,"step_conv_ratio":0.10377358490566038,"goal":"view items/subscribe","overall_conv_ratio":0.10377358490566038,"avg_time":261993,"event":"view items/subscribe"},{"count":4,"step_conv_ratio":0.36363636363636365,"goal":"view items/thanks","overall_conv_ratio":0.03773584905660377,"avg_time":117425,"event":"view items/thanks"}],"analysis":{"completion":4,"starting_amount":106,"steps":3,"worst":1}},"2012-12-08":{"steps":[{"count":74,"step_conv_ratio":1,"goal":"view contributors/show","overall_conv_ratio":1,"avg_time":null,"event":"view contributors/show"},{"count":3,"step_conv_ratio":0.04054054054054054,"goal":"view items/subscribe","overall_conv_ratio":0.04054054054054054,"avg_time":316777,"event":"view items/subscribe"},{"count":1,"step_conv_ratio":0.3333333333333333,"goal":"view items/thanks","overall_conv_ratio":0.013513513513513514,"avg_time":240264,"event":"view items/thanks"}],"analysis":{"completion":1,"starting_amount":74,"steps":3,"worst":1}},"2012-12-09":{"steps":[{"count":56,"step_conv_ratio":1,"goal":"view contributors/show","overall_conv_ratio":1,"avg_time":null,"event":"view contributors/show"},{"count":6,"step_conv_ratio":0.10714285714285714,"goal":"view items/subscribe","overall_conv_ratio":0.10714285714285714,"avg_time":153671,"event":"view items/subscribe"},{"count":4,"step_conv_ratio":0.6666666666666666,"goal":"view items/thanks","overall_conv_ratio":0.07142857142857142,"avg_time":117522,"event":"view items/thanks"}],"analysis":{"completion":4,"starting_amount":56,"steps":3,"worst":1}},"2012-12-10":{"steps":[{"count":86,"step_conv_ratio":1,"goal":"view contributors/show","overall_conv_ratio":1,"avg_time":null,"event":"view contributors/show"},{"count":10,"step_conv_ratio":0.11627906976744186,"goal":"view items/subscribe","overall_conv_ratio":0.11627906976744186,"avg_time":56236,"event":"view items/subscribe"},{"count":2,"step_conv_ratio":0.2,"goal":"view items/thanks","overall_conv_ratio":0.023255813953488372,"avg_time":237344,"event":"view items/thanks"}],"analysis":{"completion":2,"starting_amount":86,"steps":3,"worst":1}}}};
-
-
       $(function() {
-        $("#mixpanel-view").jqueryView({data:data});
+        $("#formid").ajaxzip();
       });
     </script>
   </body>
