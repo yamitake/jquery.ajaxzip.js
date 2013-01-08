@@ -4,6 +4,9 @@
   AjaxZip2.VERSION = '2.10';
   AjaxZip2.CACHE = [];
 
+
+
+
   $.fn.ajaxzip = function(options){
     /**
      * default Options
@@ -21,31 +24,56 @@
         '山口県',   '徳島県',   '香川県',   '愛媛県',   '高知県',
         '福岡県',   '佐賀県',   '長崎県',   '熊本県',   '大分県',
         '宮崎県',   '鹿児島県', '沖縄県'
-      ]
+      ],
+      success:function(data){},
+      error:function(data){}
     };
 
     return this.each(function(){
       var opts = $.extend(defaults , options);
 
       $(this).click(function(){
-        var zip = "185";
+        var zip = "999";
         var url = opts.data_path + '/zip-' + zip + '.json';
         console.log("opts.data_path:" + url);
         $.ajax(
           url ,
           {
             dataType: 'json' ,
-            success: function(){
-              console.log(data);
+            success: function(data){
+              AjaxZip2.CACHE[zip] = data;
+              var nzip = "1850024";
+              getPref(data , nzip);
+
+              opts.success(data);
             },
             error: function(data){
-              console.log("data error");
+              opts.error(data);
             }
           }
         );
 
       });
-
     });
   };
+
+  /**
+   * 全角を半角に変換する。
+   * アルファベットと-のみ対応
+   */
+  function zenkakuToHankaku(str){
+    str = str.replace("ー" , "-");//FIXME ダサい
+    return str.replace(/[Ａ-Ｚ ａ-ｚ０-９]/g, function(s) {
+      return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+    });
+  }
+
+  /**
+   * json dataより住所を取得
+   */
+  function getPref(data , nzip){
+    console.log("nzip:" + nzip);
+    console.log(data[nzip][0] + data[nzip][1] + data[nzip][2]);
+  }
+
 })(jQuery);
