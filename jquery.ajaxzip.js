@@ -9,7 +9,7 @@
      * default Options
      */
     var defaults ={
-      data_path: "zipdata" ,
+      data_path: "./zip_data" ,
       premap:[
         null,       '北海道',   '青森県',   '岩手県',   '宮城県',
         '秋田県',   '山形県',   '福島県',   '茨城県',   '栃木県',
@@ -29,7 +29,21 @@
 
       $(this).click(function(){
         var zip = "185";
-        opts.data_path
+        var url = opts.data_path + '/zip-' + zip + '.json';
+        console.log("opts.data_path:" + url);
+        $.ajax(
+          url ,
+          {
+            dataType: 'json' ,
+            success: function(){
+              console.log(data);
+            },
+            error: function(data){
+              console.log("data error");
+            }
+          }
+        );
+
       });
 
     });
