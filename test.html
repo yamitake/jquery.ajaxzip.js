@@ -28,6 +28,12 @@
         $.ajaxzip(zipcode , {
           success: function(data){
             console.log(data);
+            console.log(data.zip);
+            console.log(data.zip1);
+            console.log(data.zip2);
+            console.log(data.pref);
+            console.log(data.city);
+            console.log(data.town);
           },
           error: function(data){
             console.log("error");

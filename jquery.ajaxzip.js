@@ -33,7 +33,7 @@
       }
       //半角に変換
       zip = zenkakuToHankaku(zip);
-      if(!zip.match(/^\d{3}-?\d{4}$/)){
+      if(false && !zip.match(/^\d{3}-?\d{4}$/)){
         return opts.error({status: "error" , message : "format is invalid"});
       }
 
