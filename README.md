@@ -62,7 +62,7 @@ test.htmlが開ければ。apacheでもnginxでも大丈夫です。
 >最新の[郵便番号辞書]("http://www.post.japanpost.jp/zipcode/dl/kogaki.html") を利用したい場合は、 以下の手順で最新版にアップデートにアップデートできます。
 
 
-    $ cd jquery.ajaxzip/work
+    $ cd jquery.ajaxzip.js/work
 
     $ wget http://www.post.japanpost.jp/zipcode/dl/kogaki/lzh/ken_all.lzh
     100%[=============================================>] 1,721,445      4.53M/s
