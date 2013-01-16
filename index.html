@@ -48,7 +48,7 @@
       <section id="main_content">
         <h3>概要</h3>
 <p>
-kawa.netで提供されている<a href="http://www.kawa.net/works/ajax/ajaxzip2/ajaxzip2.html" target="_blank">AjaxZip 2.0 - Ajax郵便番号→住所自動入力フォーム（CGI不要版]</a>を元に作成したjquery pluginです。
+<a href="http://kawa.net/xp/index-j.html" target="_blank">kawa.net</a>で提供されている<a href="http://www.kawa.net/works/ajax/ajaxzip2/ajaxzip2.html" target="_blank">AjaxZip 2.0 - Ajax郵便番号→住所自動入力フォーム（CGI不要版]</a>を元に作成したjquery pluginです。
 郵便番号から住所情報の取得をすることができます。
 </p>
 
@@ -154,15 +154,95 @@ kawa.netで提供されている<a href="http://www.kawa.net/works/ajax/ajaxzip2
 <!-- demo2のソースここまで -->
 
 <h3>How To Use</h3>
-<pre>
-  <code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<ol>
+  <li>jsonファイルを配置する。住所情報の入ったdataディレクトリをサーバに配置する。</li>
+  <li>jqueryとjquery.ajaxzip.jsを読み込む
+<pre><code>
+&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">&lt;/script&gt;
+&lt;script type="text/javascript" src="jquery.ajaxzip.js"&gt;&lt;/script&gt;
+
 </code></pre>
 
+  </li>
+  <li>呼び出したいタイミングで$.ajaxzipを呼び出す。
+    <div>
+      <a href="#demo1">デモ</a>のソースコードを参考にご覧ください。
+    </div>
+  </li>
+</ol>
+
+<h5>オプション</h5>
 <p>
-  If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.
+  $.ajaxzip("郵便番号" , オプション)を引数に与える事ができます。オプションは下記の通りです。
+  <table>
+    <tr>
+      <th>data_path</th>
+      <td>
+        住所情報の入ったjsonファイルを格納するディレクトリへのパスを指定してください。
+      </td>
+    </tr>
+    <tr>
+      <th>success(function)</th>
+      <td>
+        住所のデータを取得後に呼ばれるfunctionです。引数のdataに住所情報が取得されています。
+      </td>
+    </tr>
+    <tr>
+      <th>error(function)</th>
+      <td>
+        住所が見つからなかった場合等に呼ばれるfunctionです。
+      </td>
+    </tr>
+  </table>
 </p>
+
+<h5>呼び出し例</h5>
+<pre><code>
+$.ajaxzip("170-0001", {
+  data_path: "../../data" ,
+  success: function(data){
+    alert("取得成功");
+  } ,
+  error: function(data){
+    alert("失敗");
+  }
+});
+</code></pre>
+
+
+<h5>レスポンス(success時)</h5>
+<p>
+  住所情報の取得が正常に行われた場合、引数で与えられるdataには下記のような配列(json)データが入っています。
+</p>
+<table>
+  <tr>
+    <th>status</th>
+    <td>success</td>
+  </tr>
+  <tr>
+    <th>zip</th>
+    <td>入力された郵便番号</td>
+  </tr>
+  <tr>
+    <th>zip1</th>
+    <td>郵便番号上３桁</td>
+  </tr><tr>
+    <th>zip2</th>
+    <td>郵便番号下４桁</td>
+  </tr><tr>
+    <th>pref</th>
+    <td>都道府県</td>
+  </tr><tr>
+    <th>pref_id</th>
+    <td>都道府県ID</td>
+  </tr><tr>
+    <th>city</th>
+    <td>市区</td>
+  </tr><tr>
+    <th>town</th>
+    <td>町村</td>
+  </tr>
+</table>
 
 <h3>Support or Contact</h3>
 <a href="https://github.com/yamitake/jquery.ajaxzip.js#readme">readme on github</a>

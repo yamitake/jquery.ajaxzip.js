@@ -108,3 +108,6 @@ test.htmlが開ければ。apacheでもnginxでも大丈夫です。
     ../data/zip-9**.json  .......... 96 files
 
     $ rm -f ken_all.lzh ken_all.csv jigyosyo.lzh jigyosyo.csv
+
+ライセンス
+----
