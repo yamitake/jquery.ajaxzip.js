@@ -21,7 +21,7 @@
        * default Options
        */
       var defaults ={
-        data_path: "./zip_data" ,
+        data_path: "./data" ,
         success:function(data){},
         error:function(data){}
       };
