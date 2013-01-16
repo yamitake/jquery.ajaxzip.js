@@ -53,15 +53,107 @@ kawa.netで提供されている<a href="http://www.kawa.net/works/ajax/ajaxzip2
 </p>
 
 <h3>デモ</h3>
-
 <p>
-<!-- demoのソースここから -->
-
-<!-- demoのソースここまで -->
+  入力された郵便番号をもとに住所情報を取得するデモです。
 </p>
 
-<h3>How To Use</h3>
 
+<script type="text/javascript" src="jquery.ajaxzip.js"></script>
+<!-- demo1のソースここから jqueryとjquery.ajaxzip.jsを読み込んでいる事 -->
+<h4>デモ1</h4>
+<p>郵便番号を入力しボタンを押すと情報を取得します。</p>
+<div id="demo1">
+  <p>
+    <form onSubmit="return false;">
+      郵便番号:<input name="zip" value="164-0001" type="text"></input>
+      <button id="demo1_zip2addr">郵便番号から住所情報を取得</button>
+    </form>
+  </p>
+  <div id="demo1_result" style="padding:10px;background:#efefef;">
+    結果が表示されます。
+  </div>
+</div>
+<script type="text/javascript">
+      $(function() {
+        $("#demo1_zip2addr").click(function(){
+          var zipcode = $("#demo1 input[name='zip']").val();
+
+          $.ajaxzip(zipcode , {
+            success: function(data){
+              $("#demo1_result").html("");
+
+              for (var key in data) {
+                $("#demo1_result").append(key + ":" + data[key] + '<br>');
+              }
+            },
+            error: function(data){
+              $("#demo1_result").html("status:" + data.status);
+              $("#demo1_result").append("<br>message:" + data.message);
+            }
+          });
+        });
+
+      });
+</script>
+<!-- demo1のソースここまで -->
+
+<!-- demo2のソースここから -->
+<h4>デモ2</h4>
+<p>
+  郵便番号をフォーカスアウトすると住所の自動入力が行われます。
+  普段のフォーム入力の要に郵便番号にフォーカスしてから先を入力しようとしてみてください。
+</p>
+<form id="demo2" onSubmit="return false;">
+  <table>
+    <tr>
+      <th>郵便番号</th>
+      <td>
+        <input id="zip_code" name="zipcode" value="103-0002" type="text" name="address" />
+        <span id="loading"/></span>
+      </td>
+    </tr>
+    <tr>
+      <th>都道府県</th>
+      <td><input name="prefecture" type="text" name="address" /></td>
+    </tr>
+    <tr>
+      <th>市区</th>
+      <td><input name="city" type="text" name="address" /></td>
+    </tr>
+    <tr>
+      <th>それ以降の住所</th>
+      <td>
+        <input name="town" type="text" name="address" />
+      </td>
+    </tr>
+  </table>
+</form>
+<script type="text/javascript">
+  $(function() {
+    $("#zip_code").focusout(function(){
+      var zipcode = $(this).val();
+
+      $("#loading").text("情報取得中");
+
+      $.ajaxzip(zipcode , {
+        success: function(data){
+          $("#demo2 input[name='prefecture']").val(data.pref)
+          $("#demo2 input[name='city']").val(data.city);
+          $("#demo2 input[name='town']").val(data.town);
+
+          $("#loading").text("完了");
+        },
+        error: function(data){
+          $("#loading").text("住所が存在しません");
+        }
+      });
+    });
+
+  });
+</script>
+<!-- demo2のソースここまで -->
+
+<h3>How To Use</h3>
 <pre>
   <code>$ cd your_repo_root/repo_name
 $ git fetch origin
